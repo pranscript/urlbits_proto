@@ -1,0 +1,65 @@
+<div class="container-fluid" id="homeWrapper">
+
+    <div id="navBarWrapper" class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-12" id="brandnameDiv">
+                <span>URL<span style="color:#ffffff">B</span>ITS</span>
+            </div>
+            <div class="col-lg-3 col-sm-0">
+            </div>
+            <div class="col-lg-6 col-sm-12" id="navMenuDiv">
+                <ul>
+                    <li><a href="">MY URL</a></li>
+                    <li><a href="">PRICING</a></li>
+                    <li><a href="">SIGN UP</a></li>
+                    <li><a href="">LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="bodyWrapper" class="container">
+        <div id="formWrapper">
+            <form [formGroup]="url" (ngSubmit)="saveURL()">
+                <mat-form-field id="matFormField" color="transparent" appearance="outline">
+                    <input id="searchbarInput" size="50" type="text" matInput class="form-control" formControlName="url" autocomplete="off"> 
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+                <div id="submitWrapper">
+                    <div id="label" *ngIf="!labelHide">
+                        <span> {{label}}</span>
+                    </div>
+                    <button class="btn" type="submit" id="submit">Shorten URL</button>
+                </div>
+                
+            </form>
+        </div>
+        <div id="progressbar" *ngIf="progressBar"><mat-progress-bar mode="indeterminate"></mat-progress-bar></div>
+        <!-- <div id="label" *ngIf="!labelHide">
+            <span> {{label}}</span>
+        </div> -->
+        <div id="resultWrapper" *ngIf="result" [ngClass]="(showresult)?'isSuccess':'isError'" @fadeSlideInOut>
+            <div id="result">
+                <span>{{result.shortUrl | slice:8 }}</span>
+             </div>
+            <div id="copyWrapper">
+                <a class="btn" type="submit" id="Visit" href="{{result.shortUrl}}" target="_blank">Visit</a>
+                <!-- <a class="btn" type="submit" id="Visit"  target="_blank">Visit</a> -->
+                <a class="btn" type="submit" id="Copy">Copy</a>
+            </div>
+        </div>
+        
+    </div>
+
+    <footer id="footerWrapper" class="container">
+        <div class="row">
+            <div class="col-md-12" id="footerMenuDiv">
+                <ul class="container">
+                    <li><a href="">© COPYRIGHT 2021 URLBITS. ALL RIGHTS RESERVED.</a></li>
+                    <li><a href="">TERMS AND CONDITIONS</a></li>
+                    <li><a href="">PRIVACY POLICY</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</div>

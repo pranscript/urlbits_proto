@@ -1,0 +1,8 @@
+/node_modules
+/client/node_modules
+/client/dist
+/client/.git
+*.txt
+.dev.env
+.env
+/public
